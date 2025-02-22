@@ -21,10 +21,16 @@
             y: height / 2 - 25,
             width: 100,
             height: 50,
-            image: new Image({src: 'fox.png'}),
+            image: new Konva.Image({
             draggable: true
         });
-        layer.add(image);
+        var img = new Image();
+img.onload = function() {
+    image.image(img);
+    layer.add(image);
+    stage.add(layer);
+};
+img.src = 'fox.png';
         stage.add(layer);
         image.on('dragend', function() {
             console.log('new position:', image.position());
