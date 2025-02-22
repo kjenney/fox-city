@@ -16,18 +16,18 @@
             height: height
         });
         var layer = new Konva.Layer();
-        var rect = new Konva.Rect({
+        var image = new Konva.Image({
             x: width / 2 - 50,
             y: height / 2 - 25,
             width: 100,
             height: 50,
-            fill: 'green',
+            image: new Image(),
             draggable: true
         });
-        layer.add(rect);
+        layer.add(image);
         stage.add(layer);
-        rect.on('dragend', function() {
-            console.log('new position:', rect.position());
+        image.on('dragend', function() {
+            console.log('new position:', image.position());
         });
     </script>
 </body>
