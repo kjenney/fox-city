@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Simple Konva Game</title>
-    <script src="https://cdn.jsdelivr.net/npm/konva@8.3.0/konva.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>Konva RPG with Modules</title>
+  <!-- Load Konva from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/konva@8.3.13/konva.min.js"></script>
 </head>
 <body>
-    <div id="container"></div>
-    <script type="module" src="./game.js"></script>
+  <div id="gameContainer" style="border: 2px solid #fff; width: 800px; height: 600px; position: relative;">
+    <div id="instructions" style="
+      position: absolute; bottom: 10px; left: 10px;
+      color: #ccc; font-family: Arial; font-size: 14px;
+      user-select: none; pointer-events: none;
+    ">
+      Use Arrow Keys to move the player.
+    </div>
+  </div>
+
+  <!-- Load our main script as an ES module -->
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
