@@ -32,7 +32,7 @@ function framesForRow(rowIndex) {
         frameRate: 0,
         frameIndex: 0
       });
-      this.layer.add(this.sprite);
+      // this.layer.add(this.sprite);
   
       // Create a Konva.Label for speech bubble
       this.label = new Konva.Label({
@@ -57,7 +57,7 @@ function framesForRow(rowIndex) {
         align: 'center'
       });
       this.label.add(this.labelText);
-      this.layer.add(this.label);
+      // this.layer.add(this.label);
   
       // For checking if we just showed bubble
       this.playerNearby = false;
