@@ -6,7 +6,7 @@ export const levels = [
     npcStart:    { x: 500, y: 450 }
   },
   {
-    background: './city.png',
+    background: './clothingstore_reference.png',
     playerStart: { x: 150, y: 450 },
     npcStart:    { x: 500, y: 450 }
   }

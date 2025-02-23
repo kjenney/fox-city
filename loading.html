@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konva Loading Screen</title>
+    <script src="https://cdn.jsdelivr.net/npm/konva@8.3.6/konva.min.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #container { width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body style="background-color:black">
+    <div id="container"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stage = new Konva.Stage({
+                container: 'container', // The ID of the div where the canvas will be rendered
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+
+            const layer = new Konva.Layer();
+            stage.add(layer);
+
+            const imageObj = new Image();
+            imageObj.src = 'loading.png'; // Change this to your local image file
+            imageObj.onload = function () {
+                const konvaImage = new Konva.Image({
+                    x: stage.width() / 2,
+                    y: stage.height() / 2,
+                    image: imageObj,
+                    width: 200,
+                    height: 200,
+                    offsetX: 50,
+                    offsetY: 50,
+                });
+                
+                layer.add(konvaImage);
+                layer.draw();
+
+                const anim = new Konva.Animation(function (frame) {
+                    const time = frame.time / 1000; // Convert to seconds
+                    konvaImage.rotation((time / 10) * 360); // Full rotation in 10 seconds
+                }, layer);
+                
+                anim.start();
+            };
+        });
+    </script>
+</body>
+</html>
